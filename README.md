@@ -91,7 +91,7 @@ This line specifies one output file name.
 In this output file, eigenvalues are written in the following format.
 ```
 # Eigenvalues
-# k E_1 E_2 ... E_Neigen
+# k/2pi E_1 E_2 ... E_Neigen
 0.0 1 2 ... 10
 0.1 2 3 ... 11
 ```
@@ -105,7 +105,7 @@ This format must have **%d**, which will be replaced by the index of the k point
 In the eigenstate file for one k point, eigenstates (normalized in the range \[0,1\]) are written in the following format.
 ```
 # Eigenstates
-# k = 0.00
+# k/2pi = 0.00
 # x Re(psi_1) Im(psi_1) Re(psi_2) Im(psi_2) ... Re(psi_Neigen) Im(psi_Neigen)
 0.00 0.0 0.0 1.0 0.0 ... 10.0 0.0
 0.01 1.0 0.0 2.0 0.1 ... 11.0 0.0
