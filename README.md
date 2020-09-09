@@ -101,7 +101,7 @@ In this output file, eigenvalues are written in the following format.
 states_%d.dat # format for eigenstate files
 ```
 This line specifies the format for eigenstate files.
-This format must have **%d**, which will be replaced by the index of the k point (between 0 and k_end).
+This format must have **%d**, which will be replaced by the index of the k point (between **0** and **k_splits**).
 In the eigenstate file for one k point, eigenstates (normalized in the range \[0,1\]) are written in the following format.
 ```
 # Eigenstates
