@@ -69,7 +69,7 @@ This value also determines the dimension of the Hamiltonian matrix and the eigen
 
 ### l. nn+3: k points
 ```
--0.5 0.5 100 # k_start k_end splits
+-0.5 0.5 100 # k_start k_end k_splits
 ```
 This line specifies the k points for which eigenvalues and eigenvectors are calculated.
 The input k coordinates are in unit of **2&pi;** i.e. &pm;0.5 mean the Burillouin zone boundaries.
@@ -83,7 +83,7 @@ This program calculates for **splits+1** k points.
 This line specifies how many eigenstates and eigenvectors are written in the output file.
 **Neigen** should not be larger than **N**.
 
-### l. nn+4: eigenvalue file
+### l. nn+5: eigenvalue file
 ```
 energy.dat # eigenvalue file
 ```
@@ -91,21 +91,21 @@ This line specifies one output file name.
 In this output file, eigenvalues are written in the following format.
 ```
 # Eigenvalues
-# k E_1 E_2 ... E_Neigen
+# k/2pi E_1 E_2 ... E_Neigen
 0.0 1 2 ... 10
 0.1 2 3 ... 11
 ```
 
-### l. nn+5: eigenstate file format
+### l. nn+6: eigenstate file format
 ```
 states_%d.dat # format for eigenstate files
 ```
 This line specifies the format for eigenstate files.
-This format must have **%d**, which will be replaced by the index of the k point (between 0 and k_end).
+This format must have **%d**, which will be replaced by the index of the k point (between **0** and **k_splits**).
 In the eigenstate file for one k point, eigenstates (normalized in the range \[0,1\]) are written in the following format.
 ```
 # Eigenstates
-# k = 0.00
+# k/2pi = 0.00
 # x Re(psi_1) Im(psi_1) Re(psi_2) Im(psi_2) ... Re(psi_Neigen) Im(psi_Neigen)
 0.00 0.0 0.0 1.0 0.0 ... 10.0 0.0
 0.01 1.0 0.0 2.0 0.1 ... 11.0 0.0
