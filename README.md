@@ -83,7 +83,7 @@ This program calculates for **splits+1** k points.
 This line specifies how many eigenstates and eigenvectors are written in the output file.
 **Neigen** should not be larger than **N**.
 
-### l. nn+4: eigenvalue file
+### l. nn+5: eigenvalue file
 ```
 energy.dat # eigenvalue file
 ```
@@ -96,7 +96,7 @@ In this output file, eigenvalues are written in the following format.
 0.1 2 3 ... 11
 ```
 
-### l. nn+5: eigenstate file format
+### l. nn+6: eigenstate file format
 ```
 states_%d.dat # format for eigenstate files
 ```
