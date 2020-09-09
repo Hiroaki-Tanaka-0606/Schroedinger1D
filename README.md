@@ -69,7 +69,7 @@ This value also determines the dimension of the Hamiltonian matrix and the eigen
 
 ### l. nn+3: k points
 ```
--0.5 0.5 100 # k_start k_end splits
+-0.5 0.5 100 # k_start k_end k_splits
 ```
 This line specifies the k points for which eigenvalues and eigenvectors are calculated.
 The input k coordinates are in unit of **2&pi;** i.e. &pm;0.5 mean the Burillouin zone boundaries.
