@@ -1,6 +1,6 @@
 #include "variables.hpp"
 #include "initialize.hpp"
-#include "loadInput.hpp"
+#include "loadInput_well.hpp"
 #include "utils.hpp"
 #include "lapack.hpp"
 #include <iostream>
@@ -13,7 +13,7 @@ using namespace std;
 
 int main(int argc, char** argv){
 	// initial message
-	cout << "Solver of one-dimensional Schroedinger equation" << endl;
+	cout << "Solver of one-dimensional Schroedinger equation with the well potential" << endl;
 	initialize();
 
 	// load input file name
@@ -34,7 +34,7 @@ int main(int argc, char** argv){
 	}
 	
 	// load input
-	int loadInput_status=loadInput(input);
+	int loadInput_status=loadInput_well(input);
 	if(loadInput_status==1){
 		// ok
 		cout << "Finished loading input" << endl;
@@ -93,7 +93,7 @@ int main(int argc, char** argv){
 		}
 		fprintf(state_file, "\n");
 
-		compositeMatrix(k);
+		compositeMatrix_well(k);
 	  zheev();
 		if(INFO!=0){
 			cout << "zheev failed" << endl;
@@ -111,7 +111,7 @@ int main(int argc, char** argv){
 		fprintf(value_file, "\n");
 		//eigenstates to state_file
 		for(j=0;j<N;j++){
-			double x=j*1.0/N;
+			double x=j*1.0/N*x_width;
 			fprintf(state_file, realNumber_format, x);
 			fprintf(state_file, " ");
 			for(l=0;l<Neigen;l++){

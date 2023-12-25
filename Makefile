@@ -2,9 +2,14 @@ option = -lblas -llapack
 
 target = Schroedinger_main.o initialize.o loadInput.o lapack.o utils.o
 
-all: Schroedinger.o
+target_well = Schroedinger_well_main.o initialize.o loadInput_well.o lapack.o utils.o
+
+all: Schroedinger.o Schroedinger_well.o
 
 Schroedinger.o: $(target)
+	$(CXX) $^ $(option) -o $@
+
+Schroedinger_well.o: $(target_well)
 	$(CXX) $^ $(option) -o $@
 
 .cpp.o:

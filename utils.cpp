@@ -83,3 +83,44 @@ void compositeMatrix(double k){
 	
 		
 }
+
+// H(k) is defined in README.md
+void compositeMatrix_well(double k){
+	double dx=x_width/N;
+	int i,j,l;
+	double x;
+	for(i=0;i<N;i++){
+		for(j=0;j<N;j++){
+			if(i==j){
+				// diagonal element, N^2+V_i
+				x=i*dx;
+				matrix[i][i]=1.0/dx/dx;
+				if(well_start < x && x < well_end){
+					matrix[i][i]+=well_depth;
+				}
+			}else if(abs(i-j)==1){
+				// tri-diagonal, -N^2/2
+				matrix[i][j]=-0.5/dx/dx;
+			}else{
+				// off-diagonal
+				matrix[i][j]=0;
+			}
+		}
+	}
+
+	complex<double> I(0.0,1.0);
+	// off-diagonal corners
+	// right-top corner ((0,N-1) element))
+	// matrix element = -N^2exp(-ik)/2
+	// at matrix[N-1][0]
+	// indicies are exchanged because of difference between C-style and fortran-style arrays
+	matrix[N-1][0]=-exp(-I*2.0*M_PI*k)/2.0/dx/dx;
+
+	//left-bottom corner ((N-1,0) element)
+	// matrix element = -N^2exp(ik)/2
+	// at matrix[0,N-1]
+	matrix[0][N-1]=-exp(I*2.0*M_PI*k)/2.0/dx/dx;
+		
+	
+		
+}

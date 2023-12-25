@@ -22,6 +22,12 @@ extern int Neigen;
 extern char* value_output;
 extern char* state_output;
 
+//Variables for well potential
+extern double well_start;
+extern double well_end;
+extern double well_depth;
+extern double x_width;
+
 // Variables for zheev
 extern char JOBZ;
 extern char UPLO;

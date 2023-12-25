@@ -21,6 +21,12 @@ int Neigen; // number of eigenstates to be output
 char* value_output; // output file name, in which eigenvalues are written
 char* state_output; // output file format, in which eigenstates are written
 
+//Variables for well potential
+double well_start;
+double well_end;
+double well_depth;
+double x_width;
+
 //Variables for zheev
 char JOBZ;
 char UPLO;
