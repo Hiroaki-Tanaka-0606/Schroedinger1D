@@ -94,10 +94,11 @@ void compositeMatrix_well(double k){
 			if(i==j){
 				// diagonal element, N^2+V_i
 				x=i*dx;
-				matrix[i][i]=1.0/dx/dx;
+				matrix[i][i]=1.0/dx/dx+vacuum_level;
 				if(well_start < x && x < well_end){
 					matrix[i][i]+=well_depth;
 				}
+					matrix[i][i]+=cos(2*M_PI*(x-well_start)/cosine_length)*cosine_amp;
 			}else if(abs(i-j)==1){
 				// tri-diagonal, -N^2/2
 				matrix[i][j]=-0.5/dx/dx;

@@ -26,6 +26,9 @@ double well_start;
 double well_end;
 double well_depth;
 double x_width;
+double vacuum_level;
+double cosine_length;
+double cosine_amp;
 
 //Variables for zheev
 char JOBZ;

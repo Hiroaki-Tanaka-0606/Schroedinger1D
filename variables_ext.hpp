@@ -27,6 +27,9 @@ extern double well_start;
 extern double well_end;
 extern double well_depth;
 extern double x_width;
+extern double vacuum_level;
+extern double cosine_length;
+extern double cosine_amp;
 
 // Variables for zheev
 extern char JOBZ;

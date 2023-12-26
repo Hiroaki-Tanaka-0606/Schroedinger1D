@@ -18,7 +18,21 @@ int loadInput_well(FILE* input){
 	int line=1;
 	int i;
 
-	// line 1: x width, well start, end, depth
+	// line 1: vacuum level
+	fgets_status=fgets(buffer, buffer_length, input);
+	if(fgets_status==NULL){
+		loadError(line); return -1;
+	}
+	sscanf_status=sscanf(buffer, "%lf", &vacuum_level);
+	if(sscanf_status!=1){
+		parseError(line); return -1;
+	}
+	line++;
+	cout << "Vacuum level: ";
+	printf(realNumber_format, vacuum_level);
+	cout << endl;
+	
+	// line 2: x width, well start, end, depth
 	fgets_status=fgets(buffer, buffer_length, input);
 	if(fgets_status==NULL){
 		loadError(line); return -1;
@@ -36,6 +50,22 @@ int loadInput_well(FILE* input){
 	printf(realNumber_format, well_depth);
 	cout << endl;
 
+	// line 3: periodicity of cosine part and amplitude
+		fgets_status=fgets(buffer, buffer_length, input);
+	if(fgets_status==NULL){
+		loadError(line); return -1;
+	}
+	sscanf_status=sscanf(buffer, "%lf %lf", &cosine_length, &cosine_amp);
+	if(sscanf_status!=2){
+		parseError(line); return -1;
+	}
+	line++;
+	cout << "Cosine part: periodicity";
+	printf(realNumber_format, cosine_length);
+	cout << ", amplitude ";
+	printf(realNumber_format, cosine_amp);
+	cout << endl;
+	
 	// line 2: N (nubmer of meshes)
 	fgets_status=fgets(buffer, buffer_length, input);
 	if(fgets_status==NULL){
